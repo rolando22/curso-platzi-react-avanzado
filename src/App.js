@@ -1,5 +1,5 @@
 import React from "react";
-import { ListOfCategories } from "./components/";
+import { ListOfCategories, ListOfPhotoCards } from "./components/";
 import { GlobalStyles } from "./GlobalStyles";
 
 export function App () {
@@ -7,6 +7,7 @@ export function App () {
         <>
             <GlobalStyles />
             <ListOfCategories />
+            <ListOfPhotoCards />
         </>
     );
 };
