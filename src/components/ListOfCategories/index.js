@@ -6,6 +6,7 @@ const API = 'https://petgram-api-2022.vercel.app/categories';
 
 export function ListOfCategories () {
     const [categories, setCategories] = useState([]);
+    const [showFixed, setShowFixed] = useState(false);
 
     useEffect(() => {
         window.fetch(API)
@@ -14,8 +15,18 @@ export function ListOfCategories () {
             .catch(err => console.log(err));
     }, []);
 
-    return (
-        <List>
+    useEffect(() => {
+        const onScroll = (event) => {
+            const newShowFixed = window.scrollY > 200;
+            showFixed !== newShowFixed && setShowFixed(newShowFixed);
+        };
+        document.addEventListener('scroll', onScroll);
+
+        return () => document.removeEventListener('scroll', onScroll);
+    }, [showFixed]);
+
+    const renderList = (fixed) => (
+        <List className={fixed ? 'fixed' : ''}>
             {categories.map(category =>
                 <Item
                     key={category.id}
@@ -28,5 +39,12 @@ export function ListOfCategories () {
                 </Item>
             )}
         </List>
+    );
+
+    return (
+        <>
+            {showFixed && renderList(true)}
+            {renderList()}
+        </>
     );
 };
