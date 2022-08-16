@@ -1,6 +1,6 @@
 import React from "react";
 import { ListOfCategories, ListOfPhotoCards, Logo } from "./components/";
-import { GlobalStyles } from "./GlobalStyles";
+import { GlobalStyles } from "./styles/GlobalStyles";
 
 export function App () {
     return (
