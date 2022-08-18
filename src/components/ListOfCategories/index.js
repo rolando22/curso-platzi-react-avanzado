@@ -1,19 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Category } from "../";
+import { useCategoriesData } from "../../hooks/useCategoriesData";
 import { List, Item } from "./styles";
 
-const API = 'https://petgram-api-2022.vercel.app/categories';
-
 export function ListOfCategories () {
-    const [categories, setCategories] = useState([]);
     const [showFixed, setShowFixed] = useState(false);
-
-    useEffect(() => {
-        window.fetch(API)
-            .then(resp => resp.json())
-            .then(resp => setCategories(resp))
-            .catch(err => console.log(err));
-    }, []);
+    const { categories, loading } = useCategoriesData();
 
     useEffect(() => {
         const onScroll = (event) => {
@@ -26,18 +18,25 @@ export function ListOfCategories () {
     }, [showFixed]);
 
     const renderList = (fixed) => (
-        <List className={fixed ? 'fixed' : ''}>
-            {categories.map(category =>
-                <Item
-                    key={category.id}
-                >
-                    <Category
-                        cover={category.cover}
-                        path={category.path}
-                        emoji={category.emoji}
-                    />
-                </Item>
-            )}
+        <List fixed={fixed}>
+            {
+                loading
+                    ? [1,2,3,4,5,6].map(skeletor => 
+                        <Item
+                            key={skeletor}>
+                            <Category />
+                        </Item>)
+                    : categories.map(category =>
+                        <Item
+                            key={category.id}
+                        >
+                            <Category
+                                cover={category.cover}
+                                path={category.path}
+                                emoji={category.emoji}
+                            />
+                        </Item>)
+            }
         </List>
     );
 
