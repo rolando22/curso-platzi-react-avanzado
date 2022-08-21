@@ -3,10 +3,12 @@ import { useGetPhoto } from "../../hooks/useGetPhoto";
 import { PhotoCard } from "../../components";
 
 export function PhotoCardWithQuery ({ id }) {
-    const { loading, data } = useGetPhoto(id);
+    const { loading, error, data } = useGetPhoto(id);
+
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error!</p>;
 
     return (
-        (!loading) && 
-            (<PhotoCard {...data?.photo}/>)
+        <PhotoCard {...data?.photo}/>
     );
 };

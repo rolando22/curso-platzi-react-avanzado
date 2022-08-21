@@ -29,22 +29,24 @@ const LIST_OF_PHOTO_CARDS_BY_CATEGORY = gql`
 `;
 
 export function ListOfPhotoCards () {
-    const { loading, data } = useQuery(
+    const { loading, error, data } = useQuery(
         LIST_OF_PHOTO_CARDS_BY_CATEGORY,
         { variables: { categoryId: 2 } }
     );
 
+    if (loading) return <p>Loading...</p>
+    if (error) return <p>Error!</p>
+
     return (
-        (!loading) && 
-            <ul>
-                {data.photos.map(photo =>
-                    <PhotoCard
-                        key={`photo-${photo.id}`}
-                        id={photo.id}
-                        likes={photo.likes}
-                        src={photo.src}
-                    />
-                )}
-            </ul>
+        <ul>
+            {data.photos.map(photo =>
+                <PhotoCard
+                    key={`photo-${photo.id}`}
+                    id={photo.id}
+                    likes={photo.likes}
+                    src={photo.src}
+                />
+            )}
+        </ul>
     );
 };
