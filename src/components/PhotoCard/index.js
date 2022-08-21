@@ -15,7 +15,7 @@ export function PhotoCard ({ id, likes = 0, src = DEFAULT_IMAGE }) {
         <Articule ref={element}>
             { show &&
                 <>
-                    <a href={`/detail/${id}`}>
+                    <a href={`/?detail=${id}`}>
                         <ImgWrapper>
                             <Img
                                 src={src}
