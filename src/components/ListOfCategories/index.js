@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Category } from "../";
-import { useCategoriesData } from "../../hooks/useCategoriesData";
+import { useCategoriesData } from "../../hooks/";
 import { List, Item } from "./styles";
 
 export function ListOfCategories () {

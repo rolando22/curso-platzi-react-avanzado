@@ -2,8 +2,7 @@ import React from "react";
 import { useMutation, gql } from "@apollo/client";
 import { Link } from "react-router-dom";
 import { FavButton } from "../";
-import { useLazyLoad } from "../../hooks/useLazyLoad";
-import { useLocalStorage } from "../../hooks/useLocalStorage";
+import { useLazyLoad, useLocalStorage } from "../../hooks/";
 import { Articule, ImgWrapper, Img } from "./styles";
 
 const DEFAULT_IMAGE = 'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60'

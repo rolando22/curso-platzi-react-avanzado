@@ -1,5 +1,5 @@
 import React from "react";
-import { useGetPhoto } from "../../hooks/useGetPhoto";
+import { useGetPhoto } from "../../hooks/";
 import { PhotoCard } from "../../components";
 
 export function PhotoCardWithQuery ({ detailId }) {
