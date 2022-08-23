@@ -2,10 +2,11 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Logo, NavBar } from "./components/";
 import { Home, Detail, Favs, User, NotRegisteredUser } from "./pages/";
+import { useAppContext } from "./hooks";
 import { GlobalStyles } from "./styles/GlobalStyles";
 
 export function App () {
-    const isAuth = true;
+    const { isAuth } = useAppContext();
 
     return (
         <BrowserRouter>

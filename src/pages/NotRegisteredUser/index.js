@@ -1,7 +1,12 @@
 import React from "react";
+import { useAppContext } from "../../hooks";
 
 export function NotRegisteredUser () {
+    const { login } = useAppContext();
+
     return (
-        <h1>NotRegisteredUser</h1>
+        <form onSubmit={login}>
+            <button>Iniciar sesión</button>
+        </form>
     );
 };
