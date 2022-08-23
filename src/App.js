@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Logo, NavBar } from "./components/";
-import { Home, Detail } from "./pages/";
+import { Home, Detail, Favs, User, NotRegisteredUser } from "./pages/";
 import { GlobalStyles } from "./styles/GlobalStyles";
 
 export function App () {
-    const isAuth = false;
+    const isAuth = true;
 
     return (
         <BrowserRouter>
@@ -15,6 +15,8 @@ export function App () {
                 <Route path="/" element={<Home />} />
                 <Route path="/category/:id" element={<Home />} />
                 <Route path="/detail/:detailId" element={<Detail />} />
+                <Route path="/favs" element={isAuth ? <Favs /> : <NotRegisteredUser />} />
+                <Route path="/user" element={isAuth ? <User /> : <NotRegisteredUser />} />
             </Routes>
             <NavBar />
         </BrowserRouter>
