@@ -1,5 +1,6 @@
 import React from "react";
 import { useMutation, gql } from "@apollo/client";
+import { Link } from "react-router-dom";
 import { FavButton } from "../";
 import { useLazyLoad } from "../../hooks/useLazyLoad";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
@@ -31,14 +32,14 @@ export function PhotoCard ({ id, likes = 0, src = DEFAULT_IMAGE }) {
         <Articule ref={element}>
             { show &&
                 <>
-                    <a href={`/?detail=${id}`}>
+                    <Link to={`/detail/${id}`}>
                         <ImgWrapper>
                             <Img
                                 src={src}
                                 alt="cat"
                             />
                         </ImgWrapper>
-                     </a>
+                     </Link>
                     <FavButton
                         liked={liked}
                         likes={likes}

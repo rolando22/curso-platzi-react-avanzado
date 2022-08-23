@@ -1,8 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Logo } from "./components/";
-import { PhotoCardWithQuery } from "./containers/PhotoCardWithQuery";
-import { Home } from "./pages/Home";
+import { Home, Detail } from "./pages/";
 import { GlobalStyles } from "./styles/GlobalStyles";
 
 export function App () {
@@ -13,15 +12,11 @@ export function App () {
         <BrowserRouter>
             <GlobalStyles />
             <Logo />
-            {
-                detailId
-                    ? <PhotoCardWithQuery id={detailId} />
-                    : 
-                        <Routes>
-                            <Route path="/" element={<Home />} />
-                            <Route path="/category/:id" element={<Home />} />
-                        </Routes>
-            }
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/category/:id" element={<Home />} />
+                <Route path="/detail/:detailId" element={<Detail />} />
+            </Routes>
         </BrowserRouter>
     );
 };
