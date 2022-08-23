@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { fadeIn } from "../../styles/animation";
 
 export const Nav = styled.nav`
     align-items: center;
@@ -26,4 +27,15 @@ export const LinkStyled = styled(Link)`
     justify-content: center;
     text-decoration: none;
     width: 100%;
+    &.selected {
+        color: #000;
+        &:after {
+            ${fadeIn({ time: '0.5s' })};
+            content: '·';
+            position: absolute;
+            bottom: 0;
+            font-size: 34px;
+            line-height: 20px;
+        }
+    }
 `;
