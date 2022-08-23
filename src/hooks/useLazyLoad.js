@@ -20,7 +20,7 @@ export function useLazyLoad () {
             observer.observe(element.current);
         });
 
-        return () => { observer.unobserve(); }
+        // return () => { observer.unobserve(); }
     }, [element]);
 
     return { element, show };

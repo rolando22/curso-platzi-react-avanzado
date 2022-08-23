@@ -10,20 +10,18 @@ export function App () {
     const detailId = urlParams.get('detail');
 
     return (
-        <>
+        <BrowserRouter>
             <GlobalStyles />
             <Logo />
             {
                 detailId
                     ? <PhotoCardWithQuery id={detailId} />
                     : 
-                    <BrowserRouter>
                         <Routes>
                             <Route path="/" element={<Home />} />
                             <Route path="/category/:id" element={<Home />} />
                         </Routes>
-                    </BrowserRouter>
             }
-        </>
+        </BrowserRouter>
     );
 };
