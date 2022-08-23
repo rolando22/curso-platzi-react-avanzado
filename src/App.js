@@ -5,8 +5,7 @@ import { Home, Detail } from "./pages/";
 import { GlobalStyles } from "./styles/GlobalStyles";
 
 export function App () {
-    const urlParams = new window.URLSearchParams(window.location.search);
-    const detailId = urlParams.get('detail');
+    const isAuth = false;
 
     return (
         <BrowserRouter>
