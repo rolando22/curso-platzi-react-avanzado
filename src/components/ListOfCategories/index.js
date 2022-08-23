@@ -32,7 +32,7 @@ export function ListOfCategories () {
                         >
                             <Category
                                 cover={category.cover}
-                                path={category.path}
+                                path={`/category/${category.id}`}
                                 emoji={category.emoji}
                             />
                         </Item>)

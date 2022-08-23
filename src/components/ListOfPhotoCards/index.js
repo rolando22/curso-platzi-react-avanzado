@@ -28,10 +28,10 @@ const LIST_OF_PHOTO_CARDS_BY_CATEGORY = gql`
     }
 `;
 
-export function ListOfPhotoCards () {
+export function ListOfPhotoCards ({ categoryId }) {
     const { loading, error, data } = useQuery(
         LIST_OF_PHOTO_CARDS_BY_CATEGORY,
-        { variables: { categoryId: 2 } }
+        { variables: { categoryId } }
     );
 
     if (loading) return <p>Loading...</p>

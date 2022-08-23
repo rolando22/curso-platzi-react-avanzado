@@ -1,6 +1,8 @@
 import React from "react";
-import { ListOfCategories, ListOfPhotoCards, Logo } from "./components/";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Logo } from "./components/";
 import { PhotoCardWithQuery } from "./containers/PhotoCardWithQuery";
+import { Home } from "./pages/Home";
 import { GlobalStyles } from "./styles/GlobalStyles";
 
 export function App () {
@@ -14,10 +16,13 @@ export function App () {
             {
                 detailId
                     ? <PhotoCardWithQuery id={detailId} />
-                    : <>
-                        <ListOfCategories />
-                        <ListOfPhotoCards />
-                    </>
+                    : 
+                    <BrowserRouter>
+                        <Routes>
+                            <Route path="/" element={<Home />} />
+                            <Route path="/category/:id" element={<Home />} />
+                        </Routes>
+                    </BrowserRouter>
             }
         </>
     );

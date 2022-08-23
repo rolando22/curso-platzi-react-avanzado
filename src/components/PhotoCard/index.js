@@ -24,7 +24,7 @@ export function PhotoCard ({ id, likes = 0, src = DEFAULT_IMAGE }) {
 
     const handleFavClick = () => {
         if (!liked) { mutation({ variables: { input: { id } } }); }
-        setLiked(liked);
+        setLiked(!liked);
     };
     
     return (

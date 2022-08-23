@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     output: {
         filename: 'app.bundle.js',
+        publicPath: '/',
     },
     mode: 'development',
     module: {
@@ -22,6 +23,9 @@ module.exports = {
     ],
     devServer: {
         port: 3005,
+        historyApiFallback: {
+            disableDotRule: true,
+        },
         open: true,
     },
 };
