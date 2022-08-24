@@ -6,6 +6,9 @@ export function NotRegisteredUser () {
     const { login } = useAppContext();
 
     return (
-        <UserForm login={login} />
+        <>
+            <UserForm title='Registrarse' login={login} />
+            <UserForm title='Iniciar Sesión' login={login} />
+        </>
     );
 };

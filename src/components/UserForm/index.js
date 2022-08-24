@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
+import { Form, Input, Button, Title } from "./styles";
 
-export function UserForm ({ login }) {
+export function UserForm ({ login, title }) {
     const form = useRef(null);
 
     const handleOnSubmit = () => {
@@ -11,10 +12,22 @@ export function UserForm ({ login }) {
     };
 
     return (
-        <form onSubmit={handleOnSubmit} ref={form}>
-            <input type="text" placeholder="platzi@gmail.com" name="email" required/>
-            <input type="password" name="password" required />
-            <button>Iniciar sesión</button>
-        </form>
+        <>
+            <Title>{title}</Title>
+            <Form onSubmit={handleOnSubmit} ref={form}>
+                <Input
+                    type="text"
+                    placeholder="platzi@gmail.com"
+                    name="email"
+                    required
+                />
+                <Input
+                    type="password"
+                    name="password"
+                    required
+                />
+                <Button>{title}</Button>
+            </Form>
+        </>
     );
 };
