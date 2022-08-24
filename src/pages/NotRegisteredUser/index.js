@@ -1,12 +1,11 @@
 import React from "react";
+import { UserForm } from "../../components";
 import { useAppContext } from "../../hooks";
 
 export function NotRegisteredUser () {
     const { login } = useAppContext();
 
     return (
-        <form onSubmit={login}>
-            <button>Iniciar sesión</button>
-        </form>
+        <UserForm login={login} />
     );
 };
