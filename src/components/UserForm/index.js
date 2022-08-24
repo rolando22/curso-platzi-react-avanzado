@@ -1,14 +1,14 @@
 import React, { useRef } from "react";
 import { Form, Input, Button, Title } from "./styles";
 
-export function UserForm ({ login, title }) {
+export function UserForm ({ onSubmit, title }) {
     const form = useRef(null);
 
-    const handleOnSubmit = () => {
+    const handleOnSubmit = (event) => {
+        event.preventDefault();
         const formData = new FormData(form.current);
         const user = Object.fromEntries(formData);
-        console.log(user);
-        login();
+        onSubmit({...user});
     };
 
     return (
