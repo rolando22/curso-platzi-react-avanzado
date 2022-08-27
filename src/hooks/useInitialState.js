@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 export function useInitialState () {
-    const [isAuth, setIsAuth] = useState(false);
+    const [isAuth, setIsAuth] = useState(() => {
+        return window.sessionStorage.getItem('token');
+    });
 
-    const login = () => {
+    const activateAuth = (token) => {
         setIsAuth(true);
+        window.sessionStorage.setItem('token', token);
     };
 
-    return { isAuth, login };
+    return { isAuth, activateAuth };
 };
