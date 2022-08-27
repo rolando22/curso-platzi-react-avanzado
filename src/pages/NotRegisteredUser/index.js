@@ -4,18 +4,28 @@ import { useAppContext, useRegisterMutation } from "../../hooks";
 
 export function NotRegisteredUser () {
     const { login } = useAppContext();
-    const { register } = useRegisterMutation();
+    const { register, loading, error } = useRegisterMutation();
+    const errorMsg = error ? 'El usuario ya existe.' : null;
 
     const onRegister = ({ email, password }) => {
         const input = { email, password };
         register({ variables: { input } })
-            .then(login());
+            .then(login)
+            .catch(() => {});
     };
 
     return (
         <>
-            <UserForm title='Registrarse' onSubmit={onRegister} />
-            <UserForm title='Iniciar Sesión' onSubmit={login} />
+            <UserForm
+                title='Registrarse'
+                loading={loading}
+                error={errorMsg}
+                onSubmit={onRegister}
+            />
+            <UserForm
+                title='Iniciar Sesión'
+                onSubmit={login}
+            />
         </>
     );
 };
