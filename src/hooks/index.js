@@ -1,5 +1,6 @@
 export { useAppContext } from "./useAppContext";
 export { useCategoriesData } from "./useCategoriesData";
+export { useGetFavorites } from "./useGetFavorites";
 export { useGetPhoto } from "./useGetPhoto";
 export { useInitialState } from "./useInitialState";
 export { useLazyLoad } from "./useLazyLoad";
