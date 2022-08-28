@@ -6,3 +6,4 @@ export { useLazyLoad } from "./useLazyLoad";
 export { useLocalStorage } from "./useLocalStorage";
 export { useLoginMutation } from "./useLoginMutation";
 export { useRegisterMutation } from "./useRegisterMutation";
+export { useToggleLikeMutation } from "./useToggleLikeMutation";

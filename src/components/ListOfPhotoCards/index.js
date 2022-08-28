@@ -29,7 +29,7 @@ const LIST_OF_PHOTO_CARDS_BY_CATEGORY = gql`
 `;
 
 export function ListOfPhotoCards ({ categoryId }) {
-    const { loading, error, data } = useQuery(
+    const { loading, error, data: { photos = [] } = {} } = useQuery(
         LIST_OF_PHOTO_CARDS_BY_CATEGORY,
         { variables: { categoryId } }
     );
@@ -37,12 +37,14 @@ export function ListOfPhotoCards ({ categoryId }) {
     if (loading) return <p>Loading...</p>
     if (error) return <p>Error!</p>
 
+
     return (
         <ul>
-            {data.photos.map(photo =>
+            {photos.map(photo =>
                 <PhotoCard
                     key={`photo-${photo.id}`}
                     id={photo.id}
+                    liked={photo.liked}
                     likes={photo.likes}
                     src={photo.src}
                 />
