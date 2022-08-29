@@ -1,9 +1,10 @@
 export { Category } from "./Category";
-export { ListOfCategories } from "./ListOfCategories";
-export { PhotoCard } from "./PhotoCard";
-export { ListOfPhotoCards } from "./ListOfPhotoCards";
-export { ListOfFavs } from "./ListOfFavs";
-export { Logo } from "./Logo";
 export { FavButton } from "./FavButton";
+export { ListOfCategories } from "./ListOfCategories";
+export { ListOfFavs } from "./ListOfFavs";
+export { ListOfPhotoCards } from "./ListOfPhotoCards";
+export { Logo } from "./Logo";
 export { NavBar } from "./NavBar";
+export { PhotoCard } from "./PhotoCard";
+export { SubmitButton } from "./SubmitButton";
 export { UserForm } from "./UserForm";

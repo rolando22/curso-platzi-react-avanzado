@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
-import { Form, Input, Button, Title, Error } from "./styles";
+import { SubmitButton } from "../";
+import { Form, Input, Title, Error } from "./styles";
 
 export function UserForm ({ title, loading, error, onSubmit }) {
     const form = useRef(null);
@@ -28,7 +29,7 @@ export function UserForm ({ title, loading, error, onSubmit }) {
                 disabled={loading}
                 required
             />
-            <Button disabled={loading}>{title}</Button>
+            <SubmitButton disabled={loading}>{title}</SubmitButton>
         </Form>
     );
 };

@@ -6,6 +6,7 @@ import {
     InMemoryCache,
     createHttpLink
 } from "@apollo/client";
+import { onError } from "@apollo/client/link/error";
 import { setContext } from "@apollo/client/link/context";
 import { App } from "./App";
 import { AppProvider } from "./contexts/AppContext";
@@ -27,7 +28,13 @@ const authLink = setContext((_, { headers }) => {
 
 const client = new ApolloClient({
     link: authLink.concat(httplink),
-    cache: new InMemoryCache()
+    cache: new InMemoryCache(),
+    onError: onError(({ networkError }) => {
+        if (networkError && networkError.result.code === 'invalid_token') {
+            window.sessionStorage.removeItem('token');
+            window.location.href = '/user';
+        }
+    }),
 });
 
 createRoot(document.getElementById('app'))
