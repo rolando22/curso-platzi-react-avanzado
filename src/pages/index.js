@@ -1,5 +1,6 @@
-export { Home } from "./Home";
 export { Detail } from "./Detail";
 export { Favs } from "./Favs";
-export { User } from "./User";
+export { Home } from "./Home";
+export { NotFound } from "./NotFound";
 export { NotRegisteredUser } from "./NotRegisteredUser"
+export { User } from "./User";
