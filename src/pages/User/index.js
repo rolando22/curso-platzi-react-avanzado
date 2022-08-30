@@ -1,18 +1,20 @@
 import React from "react";
-import { SubmitButton } from "../../components/"; 
+import { Layout, SubmitButton } from "../../components/"; 
 import { useAppContext } from "../../hooks";
 
 export function User () {
     const { removeAuth } = useAppContext();
 
     return (
-        <>
-            <h1>User</h1>
+        <Layout
+            title="Panel de Usuario"
+            subtitle="Acá puedes gestionar tu cuenta de Petgram"
+        >
             <SubmitButton
                 onClick={removeAuth}
             >
                 Cerrar Sesión
             </SubmitButton>
-        </>
+        </Layout>
     );
 };

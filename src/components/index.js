@@ -1,5 +1,6 @@
 export { Category } from "./Category";
 export { FavButton } from "./FavButton";
+export { Layout } from "./Layout";
 export { ListOfCategories } from "./ListOfCategories";
 export { ListOfFavs } from "./ListOfFavs";
 export { ListOfPhotoCards } from "./ListOfPhotoCards";

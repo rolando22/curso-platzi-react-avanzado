@@ -1,5 +1,5 @@
 import React from "react";
-import { UserForm } from "../../components";
+import { Layout, UserForm } from "../../components";
 import { useAppContext, useRegisterMutation, useLoginMutation } from "../../hooks";
 
 export function NotRegisteredUser () {
@@ -28,7 +28,10 @@ export function NotRegisteredUser () {
     };
 
     return (
-        <>
+        <Layout
+            title="Registro e Inicio de Sesión de Usuario"
+            subtitle="Registraste o inicia sesión en Petgram"
+            show={false}>
             <UserForm
                 title='Registrarse'
                 loading={loadingRegister}
@@ -41,6 +44,6 @@ export function NotRegisteredUser () {
                 error={errorMsgLogin}
                 onSubmit={onLogin}
             />
-        </>
+        </Layout>
     );
 };
