@@ -4,6 +4,7 @@ const WebpackPwaManifestPlugin = require('webpack-pwa-manifest');
 
 module.exports = {
     output: {
+        path: path.resolve(__dirname, 'dist'),
         filename: 'app.bundle.js',
         publicPath: '/',
     },
@@ -38,10 +39,10 @@ module.exports = {
         }),
     ],
     devServer: {
+        static: path.join(__dirname, 'dist'),
+        historyApiFallback: true,
+        compress: true,
         port: 3005,
-        historyApiFallback: {
-            disableDotRule: true,
-        },
         open: true,
     },
 };
