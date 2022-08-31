@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackPwaManifestPlugin = require('webpack-pwa-manifest');
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
     output: {
@@ -32,8 +33,26 @@ module.exports = {
             icons: [
                 {
                     src: path.resolve('src/assets/icon.png'),
-                    sizes: [96, 128, 192, 256, 384, 512],
-                    purpose: 'maskable',
+                    sizes: [96, 128, 144, 192, 256, 384, 512],
+                    purpose: 'any maskable',
+                },
+            ],
+        }),
+        new WorkboxWebpackPlugin.GenerateSW({
+            runtimeCaching: [
+                {
+                    urlPattern: new RegExp('https://(res.cloudinary.com|images.unsplash.com)'),
+                    handler: 'CacheFirst',
+                    options: {
+                        cacheName: 'images',
+                    },
+                },
+                {
+                    urlPattern: new RegExp('https://petgram-api-2022.vercel.app'),
+                    handler: 'NetworkFirst',
+                    options: {
+                        cacheName: 'api',
+                    },
                 },
             ],
         }),
