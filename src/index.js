@@ -39,9 +39,9 @@ const client = new ApolloClient({
 
 createRoot(document.getElementById('app'))
     .render(
-        <AppProvider>
-            <ApolloProvider client={client}>
+        <ApolloProvider client={client}>
+            <AppProvider>
                 <App />
-            </ApolloProvider>
-        </AppProvider>
+            </AppProvider>
+        </ApolloProvider>
     );

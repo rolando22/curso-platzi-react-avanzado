@@ -1,11 +1,11 @@
 import { useState } from "react";
-// import { useApolloClient } from "@apollo/client";
+import { useApolloClient } from "@apollo/client";
 
 export function useInitialState () {
     const [isAuth, setIsAuth] = useState(() => {
         return window.sessionStorage.getItem('token');
     });
-    // const client = useApolloClient();
+    const client = useApolloClient();
 
     const activateAuth = (token) => {
         setIsAuth(true);
@@ -15,7 +15,7 @@ export function useInitialState () {
     const removeAuth = () => {
         setIsAuth(false);
         window.sessionStorage.removeItem('token');
-        // client.resetStore();
+        client.resetStore();
     };
 
     return { isAuth, activateAuth, removeAuth };
